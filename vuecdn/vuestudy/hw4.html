@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js sample</title>
+		<link rel="stylesheet" href="../style.css" >
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <style>
+            * {
+                margin: 5px;
+                text-align: center;
+            }
+            span {
+                margin: 15px 0px;
+                display: inline-block;
+            }
+            img {
+                width: 600px;
+                height: auto;
+            }
+        </style>
+	</head>
+    <body>
+        <div id="app">
+            <h1>숫자 버튼 만들기와 클릭 이벤트 처리</h1>
+
+            <button v-for="i in 9" @click="showimg(i)"> {{ i }}</button>
+            <hr>
+            <img :src ="mySRC"></img>
+        </div>
+
+        <script>
+            const { createApp } = Vue;
+            createApp({
+                data() {
+                    return {
+                        mySRC: " "
+                    }
+                },
+                methods: {
+                    showimg: function(i) {
+                        console.log(`../images/i`)
+                        this.mySRC=`../images/${i}.jpg`
+                    }
+                }
+            }).mount("#app");
+        </script>
+    </body>
+</html>
