@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+            <link rel="stylesheet" href="../style.css" >
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	</head>
+	<body>
+		<div id="app">
+            <h1>우리팀의 정보 출력하기</h1>
+			<my-component my-team="Unimeeting" my-color="blue" :my-array="myArray"></my-component>
+            <my-component my-team="Unimeeting" my-color="green" :my-array="myArray"></my-component>
+            <my-component my-team="Unimeeting" my-color="red" :my-array="myArray"></my-component>
+		</div>
+    <script>
+      const { createApp } = Vue;
+
+      const MyComponent = {
+        template: `<h2 :style="{ color: myColor }"> 2조 - {{ myTeam }}</h2>
+                <ul> <li v-for="name in myArray"> {{ name }}</li> </ul>`,
+        props: {
+          myTeam: String,
+          myColor: String,
+          myArray: Array
+        }
+      }
+
+      createApp({
+        data() {
+          return {
+            myArray: ['듀크', '둘리', '또치', '도우너']
+          }
+        },
+        components: {
+          'my-component': MyComponent
+        }
+      }).mount('#app');
+    </script>
+  </body>
+</html>
