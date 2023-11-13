@@ -9,8 +9,17 @@
     </div>
 </template>
 <script setup>
-    import { onMounted, defineProps } from 'vue'; 
+    import { defineProps, defineEmits } from 'vue'; 
+    import { useWeatherStore } from '@/stores/weather';
+    import { storeToRefs } from 'pinia';
+
+
     const emit = defineEmits(["disappear"]);
+    const weatherStore = useWeatherStore();
+    // console.log(weatherStore.setWeather())
+    
+    weatherStore.setWeather()
+    const {getState} = weatherStore
 
     const p = defineProps( {
         name : String,
@@ -23,7 +32,7 @@
         num : Number 
     });
     function handleClick() {
-        // alert(`${p.teamNum}팀 입니다~~~!!`);
+        alert(`${p.teamNum}팀 입니다~~~!! ${getState}`);
         emit('disappear', p.num)
     }
 
