@@ -5,8 +5,8 @@
     <router-link to="/study2">Study2</router-link> |    
     <router-link to="/study3">Study3</router-link> |     
     <router-link to="/study4">Study4</router-link> | 
-    <router-link to="/study4">Study5</router-link> | 
-    <router-link to="/study4">Study6</router-link> | 
+    <router-link to="/study5">Study5</router-link> | 
+    <router-link to="/study6">Study6</router-link> | 
     <router-link to="/Work">Work</router-link> | 
   </nav>
   <br>
